@@ -14,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background-2
+  - Background-1
+  - Gameplay
+  - Foreground+1
+  - Foreground+2
   - 
   - 
   - 
@@ -41,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background-2
+    uniqueID: 1702691599
+    locked: 0
+  - name: Background-1
+    uniqueID: 1542807889
+    locked: 0
+  - name: Gameplay
+    uniqueID: 4125329315
+    locked: 0
+  - name: Foreground+1
+    uniqueID: 4004918195
+    locked: 0
+  - name: Foreground+2
+    uniqueID: 3068541757
     locked: 0
