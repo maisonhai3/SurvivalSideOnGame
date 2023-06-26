@@ -5,8 +5,9 @@ namespace Platformer.UIManager
 {
     class CharacterSelectPanel : MonoBehaviour, IPanel
     {
+        [SerializeField] private ToggleGroup heroToggleGroup;
         [SerializeField] private Button okButton;
-        [SerializeField] private Button HeroToggleList;
+        [SerializeField] private Button backButton;
 
         private void ChooseBlueHero()
         {
