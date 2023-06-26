@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_UITookit/Style_1stAttempt.uss?fileID=7433441132597879392&amp;guid=c1db005d40ebdc04bb974aa74f12465d&amp;type=3#Style_1stAttempt" />
+    <ui:VisualElement name="WellcomePanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="GameName" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Platformer game" display-tooltip-when-elided="true" style="height: 380px; -unity-text-align: middle-center; -unity-font-style: bold-and-italic; font-size: 60px;" />
+        </ui:VisualElement>
+        <ui:Button text="Play!" display-tooltip-when-elided="true" name="PlayButton" />
+    </ui:VisualElement>
+</ui:UXML>
