@@ -1,11 +1,11 @@
 namespace Platformer.UIManager
 {
-    internal interface IPanel
+    public interface IPanel
     {
-        public void SetUp(UIManager uiManager) { }
+        public void Construct(UIManager _uiManager);
 
-        public void Show() { }
-        
-        public void Hide() { }
+        public void Show();
+
+        public void Hide();
     }
 }

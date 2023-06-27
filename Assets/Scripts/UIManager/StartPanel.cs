@@ -3,18 +3,25 @@ using UnityEngine.UI;
 
 namespace Platformer.UIManager
 {
-    class GameOverPanel : MonoBehaviour , IPanel
+    class StartPanel : MonoBehaviour, IPanel
     {
-        [SerializeField] private Button okButton;
+        private UIManager uiManager;
+        
+        [SerializeField] private Button startButton;
 
-        private void OnClickBackToChooseHero()
+        private void Awake()
+        {
+            GetComponent<Button>().onClick.AddListener(OnClickStartGame);
+        }
+        
+        private void OnClickStartGame()
         {
             
         }
-        
+
         public void Construct(UIManager _uiManager)
         {
-            throw new System.NotImplementedException();
+            uiManager = _uiManager;
         }
 
         public void Show()

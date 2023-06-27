@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Platformer.UIManager
 {
-    class RestartPanel : IPanel
+    class RestartPanel : MonoBehaviour, IPanel
     {
         [SerializeField] private Button restartButton;
         [SerializeField] private Button cancelButton;
@@ -16,6 +16,21 @@ namespace Platformer.UIManager
         private void OnClickCancel()
         {
             
+        }
+
+        public void Construct(UIManager _uiManager)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Show()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Hide()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
