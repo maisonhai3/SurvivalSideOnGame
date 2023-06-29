@@ -21,11 +21,9 @@ namespace Platformer.UIManager
 
             foreach (var panel in childPanels) 
                 panel.Construct(this);
-        }
 
-        private void SetUpListener()
-        {
-            
+            gameManager = GameManager.GameManager.Instance;
+            gameManager.StateChangedActions += OnGameStateChange;
         }
 
         private void OnGameStateChange()

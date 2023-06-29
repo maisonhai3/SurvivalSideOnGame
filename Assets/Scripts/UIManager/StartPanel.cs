@@ -11,7 +11,7 @@ namespace Platformer.UIManager
 
         private void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(OnClickStartGame);
+            startButton.onClick.AddListener(OnClickStartGame);
         }
         
         private void OnClickStartGame()
