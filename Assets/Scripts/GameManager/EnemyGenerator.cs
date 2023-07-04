@@ -7,6 +7,8 @@ namespace Platformer.GameManager
     public class EnemyGenerator : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
+        private Transform enemyParent;
+        
         [SerializeField] private GameObject worldConfinement;
         
         private int limitNumber;
@@ -24,6 +26,7 @@ namespace Platformer.GameManager
         private void OnEnable()
         {
             // Should be refactored after PoC
+            enemyParent = GameObject.Find("Enemies").transform;
             GetConfineValues();
             GenerateEnemy();
         }
@@ -33,7 +36,7 @@ namespace Platformer.GameManager
             for (var i = 0; i <= 10; i++)
             {
                 var randomPosition = RandomizePosition();
-                var enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+                var enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity, enemyParent);
             }
         }
 
