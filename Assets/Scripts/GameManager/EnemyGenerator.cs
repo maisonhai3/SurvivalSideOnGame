@@ -24,7 +24,7 @@ namespace Platformer.GameManager
         private void OnEnable()
         {
             // Should be refactored after PoC
-            GetConfinerValues();
+            GetConfineValues();
             GenerateEnemy();
         }
 
@@ -50,14 +50,15 @@ namespace Platformer.GameManager
             return enemyTypes.MELEE;
         }
 
-        private void GetConfinerValues()
+        private void GetConfineValues()
         {
-            BoxCollider2D collider = worldConfinement.GetComponent<BoxCollider2D>();    		
+            var boxCollider2D = worldConfinement.GetComponent<BoxCollider2D>();    		
+            var bounds = boxCollider2D.bounds;
 		
-            maxY = collider.offset.y + (collider.size.y / 2f);
-            minY = collider.offset.y - (collider.size.y / 2f);
-            minX = collider.offset.x - (collider.size.x / 2f);
-            maxX = collider.offset.x + (collider.size.x /2f);
+            maxX = bounds.max.x;
+            minX = bounds.min.x;
+            maxY = bounds.max.y;
+            minY = bounds.min.y;
         }
     }
 }

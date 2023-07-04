@@ -368,7 +368,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160.05
+  m_fontSize: 142.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6581,8 +6581,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.014350891, y: -0.15855026, z: 0}
-    m_Extent: {x: 35.22145, y: 34.93195, z: 0}
+    m_Center: {x: 0.02130127, y: -0.16279984, z: 0}
+    m_Extent: {x: 35.223, y: 34.9321, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6787,7 +6787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.711356, y: 2.7272198, z: -9}
+  m_LocalPosition: {x: 9.599923, y: 2.8479614, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8513,8 +8513,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 12.6911, y: -0.78360033, z: 0}
-    m_Extent: {x: 17.117199, y: 13.2026005, z: 0}
+    m_Center: {x: 12.692699, y: -0.78985023, z: 0}
+    m_Extent: {x: 17.114, y: 13.19985, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9440,8 +9440,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.8684006, y: -0.0035514832, z: 0}
-    m_Extent: {x: 35.6529, y: 35.25145, z: 0}
+    m_Center: {x: -0.8741493, y: -0.007549286, z: 0}
+    m_Extent: {x: 35.65535, y: 35.24855, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -45590,8 +45590,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 34.000298, y: -6.7685995, z: 0}
-    m_Extent: {x: 26.0843, y: 9.7429, z: 0}
+    m_Center: {x: 33.994698, y: -6.7715006, z: 0}
+    m_Extent: {x: 26.0796, y: 9.7424, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -45720,7 +45720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1540419418
 Transform:
   m_ObjectHideFlags: 0
@@ -47248,8 +47248,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.25250006, y: -1.4311001, z: 0}
-    m_Extent: {x: 13.9708, y: 8.2144, z: 0}
+    m_Center: {x: 0.2446003, y: -1.4461002, z: 0}
+    m_Extent: {x: 13.9655, y: 8.2164, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -48382,7 +48382,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.95
+  m_fontSize: 35.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
