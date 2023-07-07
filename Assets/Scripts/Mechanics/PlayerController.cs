@@ -5,6 +5,8 @@ using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
 using Platformer.Core;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Platformer.Mechanics
 {
@@ -22,23 +24,37 @@ namespace Platformer.Mechanics
         /// Max horizontal speed of the player.
         /// </summary>
         public float maxSpeed = 7;
+        
         /// <summary>
         /// Initial jump velocity at the start of a jump.
         /// </summary>
         public float jumpTakeOffSpeed = 7;
+        
+        public Health health;
 
         public JumpState jumpState = JumpState.Grounded;
-        private bool stopJump;
-        /*internal new*/ public Collider2D collider2d;
-        /*internal new*/ public AudioSource audioSource;
-        public Health health;
-        public bool controlEnabled = true;
+        public enum JumpState
+        {
+            Grounded,
+            PrepareToJump,
+            Jumping,
+            InFlight,
+            Landed
+        }
 
-        bool jump;
-        Vector2 move;
-        SpriteRenderer spriteRenderer;
+        private bool stopJump;
+
+        public Collider2D collider2d;
+        public AudioSource audioSource;
+        private SpriteRenderer spriteRenderer;
         internal Animator animator;
-        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        public PlayerInput playerInput;
+
+        public bool controlEnabled = true;
+        private bool jump;
+        private Vector2 move;
+
+        private readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
 
@@ -49,30 +65,42 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+            // playerInput = GetComponent<PlayerInput>();
         }
 
         protected override void Update()
         {
+
+        }
+
+        public void Movement(InputAction.CallbackContext context)
+        {
+            var inputMovement = context.ReadValue<Vector2>();
+            
+            // Get move.x or jump
             if (controlEnabled)
             {
-                move.x = Input.GetAxis("Horizontal");
-                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                    jumpState = JumpState.PrepareToJump;
-                else if (Input.GetButtonUp("Jump"))
-                {
-                    stopJump = true;
-                    Schedule<PlayerStopJump>().player = this;
-                }
+                // move.x = Input.GetAxis("Horizontal"); // -1 .. 1
+                move.x = inputMovement.x;
+                
+                // if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                //     jumpState = JumpState.PrepareToJump;
+                // else if (Input.GetButtonUp("Jump"))
+                // {
+                //     stopJump = true;
+                //     Schedule<PlayerStopJump>().player = this;
+                // }
             }
             else
             {
                 move.x = 0;
             }
+            
             UpdateJumpState();
             base.Update();
         }
 
-        void UpdateJumpState()
+        private void UpdateJumpState()
         {
             jump = false;
             switch (jumpState)
@@ -104,6 +132,7 @@ namespace Platformer.Mechanics
 
         protected override void ComputeVelocity()
         {
+            // Jump Controlling
             if (jump && IsGrounded)
             {
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
@@ -118,24 +147,16 @@ namespace Platformer.Mechanics
                 }
             }
 
+            targetVelocity = move * maxSpeed;
+            
+            // Animation Controlling
             if (move.x > 0.01f)
                 spriteRenderer.flipX = false;
             else if (move.x < -0.01f)
                 spriteRenderer.flipX = true;
-
+            
             animator.SetBool("grounded", IsGrounded);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-
-            targetVelocity = move * maxSpeed;
-        }
-
-        public enum JumpState
-        {
-            Grounded,
-            PrepareToJump,
-            Jumping,
-            InFlight,
-            Landed
         }
     }
 }
