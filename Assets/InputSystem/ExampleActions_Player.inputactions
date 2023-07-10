@@ -1,5 +1,5 @@
 {
-    "name": "InputActions_Player",
+    "name": "ExampleActions_Player",
     "maps": [
         {
             "name": "Player Controls",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "ad3b97e2-a837-451c-9b6c-50c0aed439a2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Attack",
@@ -172,6 +181,28 @@
                     "processors": "",
                     "groups": "Gamepad;Touchscreen",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30beb335-9503-4fb4-b94c-61f74a4ab1ab",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "987f322e-3811-4253-bd1f-e4d9ae611b7d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

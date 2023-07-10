@@ -52,7 +52,7 @@ namespace Platformer.Mechanics
 
         public bool controlEnabled = true;
         private bool jump;
-        private Vector2 move;
+        private Vector2 mMove;
 
         private readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
@@ -70,34 +70,27 @@ namespace Platformer.Mechanics
 
         protected override void Update()
         {
-
-        }
-
-        public void Movement(InputAction.CallbackContext context)
-        {
-            var inputMovement = context.ReadValue<Vector2>();
-            
-            // Get move.x or jump
             if (controlEnabled)
             {
-                // move.x = Input.GetAxis("Horizontal"); // -1 .. 1
-                move.x = inputMovement.x;
-                
-                // if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                //     jumpState = JumpState.PrepareToJump;
-                // else if (Input.GetButtonUp("Jump"))
-                // {
-                //     stopJump = true;
-                //     Schedule<PlayerStopJump>().player = this;
-                // }
+                if (jumpState == JumpState.Grounded && Keyboard.current[Key.Space].wasPressedThisFrame)
+                    jumpState = JumpState.PrepareToJump;
+                else if (Keyboard.current[Key.Space].wasPressedThisFrame)
+                {
+                    stopJump = true;
+                    Schedule<PlayerStopJump>().player = this;
+                }
             }
             else
-            {
-                move.x = 0;
-            }
-            
+                mMove.x = 0;
+
             UpdateJumpState();
+            
             base.Update();
+        }
+        
+        public void OnMovement(InputAction.CallbackContext context)
+        {
+            mMove = context.ReadValue<Vector2>();
         }
 
         private void UpdateJumpState()
@@ -147,12 +140,12 @@ namespace Platformer.Mechanics
                 }
             }
 
-            targetVelocity = move * maxSpeed;
+            targetVelocity = mMove * maxSpeed;
             
             // Animation Controlling
-            if (move.x > 0.01f)
+            if (mMove.x > 0.01f)
                 spriteRenderer.flipX = false;
-            else if (move.x < -0.01f)
+            else if (mMove.x < -0.01f)
                 spriteRenderer.flipX = true;
             
             animator.SetBool("grounded", IsGrounded);
